@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Image from './Image';
+import Score from './Score';
 import { Well, Label } from 'react-bootstrap';
 
 class ImageGrid extends Component {
@@ -83,11 +84,7 @@ class ImageGrid extends Component {
 		if (!this.state.lost) {
 			return (
 				<div>
-					{this.state.message}
-					<h1>
-						Score: <Label bsStyle="primary">{this.state.score}</Label> | High Score:{' '}
-						<Label bsStyle="success">{this.state.highScore}</Label>
-					</h1>
+					<Score lost={this.state.lost} score={this.state.score} highScore={this.state.highScore} />
 					<Well style={{ height: '700px' }}>
 						{this.state.currentCards.map(function(card) {
 							return (
@@ -100,10 +97,8 @@ class ImageGrid extends Component {
 		} else {
 			return (
 				<div>
-					<h1>
-						Score: {this.state.score} | high score: {this.state.highScore}
-					</h1>
-					<h1 style={{ textAlign: 'center' }}>You lose!</h1>
+					<Score lost={this.state.lost} score={this.state.score} highScore={this.state.highScore} />
+					<h1 style={{ textAlign: 'center', color: 'red' }}>You lose!</h1>
 				</div>
 			);
 		}
