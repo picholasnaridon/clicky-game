@@ -30,7 +30,7 @@ class ImageGrid extends Component {
 			this.setState({
 				clickedCards: [ ...this.state.clickedCards, name ],
 				score: (this.state.score += 1)
-			}); //simple value
+			});
 			this.setCards();
 		} else {
 			this.lostGame();
